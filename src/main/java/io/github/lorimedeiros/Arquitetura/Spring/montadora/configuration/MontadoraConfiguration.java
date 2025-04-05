@@ -12,14 +12,39 @@ public class MontadoraConfiguration {
 //usamos várias vezes dentro da aplicação, como configurações com bancos de dados, um servidor de emails e outros.
 
 //objetos construídos nessa classe são beans, como o motor ali em baixo
-    @Bean
-    public Motor motor(){
+    @Bean(name = "motorAspirado")
+    public Motor motorAspirado(){
         var motor = new Motor();
         motor.setCavalos(120);
         motor.setCilindros(4);
         motor.setModelo("XPTO-0");
         motor.setLitragem(2.0);
         motor.setTipo(TipoMotor.ASPIRADO);
+        return motor;
+    }
+
+
+    //Criação de mais beans de motor para testar o funcionamento de autowired com multiplos construtores
+    //names também adicionados posteriormente (não são obrigatórios pois tem o mesmo nome do método, mas estão aqui para exemplificar)
+    @Bean(name = "motorEletrico")
+    public Motor motorEletrico(){
+        var motor = new Motor();
+        motor.setCavalos(110);
+        motor.setCilindros(3);
+        motor.setModelo("TH-40");
+        motor.setLitragem(1.4);
+        motor.setTipo(TipoMotor.ELETRICO);
+        return motor;
+    }
+
+    @Bean(name = "motorTurbo")
+    public Motor motorTurbo(){
+        var motor = new Motor();
+        motor.setCavalos(180);
+        motor.setCilindros(4);
+        motor.setModelo("XPTO-01");
+        motor.setLitragem(1.5);
+        motor.setTipo(TipoMotor.TURBO);
         return motor;
     }
 
