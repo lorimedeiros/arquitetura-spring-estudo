@@ -4,6 +4,7 @@ import io.github.lorimedeiros.Arquitetura.Spring.montadora.Motor;
 import io.github.lorimedeiros.Arquitetura.Spring.montadora.TipoMotor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class MontadoraConfiguration {
@@ -27,6 +28,7 @@ public class MontadoraConfiguration {
     //Criação de mais beans de motor para testar o funcionamento de autowired com multiplos construtores
     //names também adicionados posteriormente (não são obrigatórios pois tem o mesmo nome do método, mas estão aqui para exemplificar)
     @Bean(name = "motorEletrico")
+    @Primary //usado para informar que esse é o construtor primário (em caso de ter mais de um construtor para o mesmo objeto e caso o dev não informe com qualified)
     public Motor motorEletrico(){
         var motor = new Motor();
         motor.setCavalos(110);

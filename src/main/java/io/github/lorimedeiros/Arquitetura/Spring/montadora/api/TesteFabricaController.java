@@ -13,16 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class TesteFabricaController {
 
     @Autowired //"Spring vá lá no seu container e me dê uma instancia de motor", no caso, aquela instancia que temos lá em MontadoraConfig
-    @Qualifier("motorEletrico") //para definir construtor caso exista mais de um
+    //@Qualifier("motorEletrico") //para definir construtor caso exista mais de um
     private Motor motorE;
-
-    @Autowired
-    @Qualifier("motorTurbo")
-    private Motor motorT;
-
-    @Autowired
-    @Qualifier("motorAspirado")
-    private Motor motorA;
 
     @PostMapping
     public CarroStatus ligarCarro(@RequestBody Chave chave){
