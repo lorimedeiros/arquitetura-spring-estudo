@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class TesteFabricaController {
 
     @Autowired //"Spring vá lá no seu container e me dê uma instancia de motor", no caso, aquela instancia que temos lá em MontadoraConfig
-    //@Qualifier("motorEletrico") //para definir construtor caso exista mais de um
-    private Motor motorE;
+    //@Qualifier("motorAspirado") //para definir construtor caso exista mais de um
+    @Aspirado //uso prático da nossa notação personalizada (equivalente a mesma linha de cima)
+    private Motor motorA;
 
     @PostMapping
     public CarroStatus ligarCarro(@RequestBody Chave chave){
-        var carro = new HondaCivic(motorE);
+        var carro = new HondaCivic(motorA);
         return carro.darIgnicao(chave);
     }
 
