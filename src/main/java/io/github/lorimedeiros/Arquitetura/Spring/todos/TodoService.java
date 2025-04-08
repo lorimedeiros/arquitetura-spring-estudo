@@ -16,4 +16,14 @@ public class TodoService {
         return repository.save(novoTodo);
     }
 
+    public void atualizarStatus(TodoEntity todo){
+        repository.save(todo);
+        //funcionamento do save: tem id? se sim, pega e atualiza o todo com aquele id
+        //veio sem id? salva como novo registro.
+    }
+
+    public TodoEntity buscarPorId(Integer id){
+        return repository.findById(id).orElse(null);
+    }
+
 }
