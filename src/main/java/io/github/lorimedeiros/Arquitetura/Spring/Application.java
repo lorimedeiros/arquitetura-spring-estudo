@@ -35,8 +35,8 @@ public class Application {
 		String applicationName = environment.getProperty("spring.application.name");
 		System.out.println("Nome da aplicação: " + applicationName);
 
+		LendoPropriedades valor = applicationContext.getBean(LendoPropriedades.class);
+		System.out.println(valor.imprimirDados());
+
 	}
-
-
-
 }
